@@ -1,0 +1,9 @@
+com\mycompany\easybuy\servlets\ProductOperationServlet.class
+com\mycompany\easybuy\helper\Helper.class
+com\mycompany\easybuy\servlets\EditServlet.class
+com\mycompany\easybuy\servlets\LoginServlet.class
+com\mycompany\easybuy\servlets\PaymentServlet.class
+com\mycompany\easybuy\servlets\SellerServlet.class
+com\mycompany\easybuy\servlets\CheckOutServlet.class
+com\mycompany\easybuy\servlets\RegisterServlet.class
+com\mycompany\easybuy\servlets\LogoutServlet.class
