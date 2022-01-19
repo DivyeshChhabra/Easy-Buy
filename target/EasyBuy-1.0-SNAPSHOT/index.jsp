@@ -77,7 +77,7 @@
                             /* Storing the details of products in arraylists */
                             productID.add(rs7.getInt("product_id"));
                             productName.add(rs7.getString("product_name"));
-                            productDescription.add(rs7.getString("description"));
+                            productDescription.add(rs7.getString("product_description"));
                             productPrice.add(rs7.getDouble("unit_price"));
                             productDiscount.add(rs7.getDouble("discount"));
                             productPhoto.add(rs7.getString("product_image"));
@@ -93,7 +93,7 @@
                             /* Storing the details of products in arraylists */
                             productID.add(rs7.getInt("product_id"));
                             productName.add(rs7.getString("product_name"));
-                            productDescription.add(rs7.getString("description"));
+                            productDescription.add(rs7.getString("product_description"));
                             productPrice.add(rs7.getDouble("unit_price"));
                             productDiscount.add(rs7.getDouble("discount"));
                             productPhoto.add(rs7.getString("product_image"));
