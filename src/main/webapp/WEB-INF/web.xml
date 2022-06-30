@@ -1,76 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    <!-- ***** Servlet for User Registeration and Login ***** -->
     <servlet>
-        <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>com.mycompany.easybuy.servlets.RegisterServlet</servlet-class>
+        <servlet-name>RegisterLoginServlet</servlet-name>
+        <servlet-class>com.mycompany.easybuy.servlets.RegisterLoginServlet</servlet-class>
     </servlet>
+    <!-- URL Mapping of the Serlvet -->
+    <servlet-mapping>
+        <servlet-name>RegisterLoginServlet</servlet-name>
+        <url-pattern>/welcome</url-pattern>
+    </servlet-mapping>
+    
+    <!-- ***** Servlet for User Verification ***** -->
     <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.mycompany.easybuy.servlets.LoginServlet</servlet-class>
+        <servlet-name>VerificationControllerServlet</servlet-name>
+        <servlet-class>com.mycompany.easybuy.servlets.VerificationControllerServlet</servlet-class>
     </servlet>
+    <!-- URL Mapping of the Serlvet -->
+    <servlet-mapping>
+        <servlet-name>VerificationControllerServlet</servlet-name>
+        <url-pattern>/verification</url-pattern>
+    </servlet-mapping>
+    
+    <!-- ***** Servlet for Account Recovery ***** -->
     <servlet>
-        <servlet-name>LogoutServlet</servlet-name>
-        <servlet-class>com.mycompany.easybuy.servlets.LogoutServlet</servlet-class>
+        <servlet-name>RecoveryControllerServlet</servlet-name>
+        <servlet-class>com.mycompany.easybuy.servlets.RecoveryControllerServlet</servlet-class>
     </servlet>
+    <!-- URL Mapping of the Serlvet -->
+    <servlet-mapping>
+        <servlet-name>RecoveryControllerServlet</servlet-name>
+        <url-pattern>/recoverAccount</url-pattern>
+    </servlet-mapping>
+    
+    <!-- ***** Servlet for CRUD Operations in Categories and Products ***** -->
     <servlet>
-        <servlet-name>SellerServlet</servlet-name>
-        <servlet-class>com.mycompany.easybuy.servlets.SellerServlet</servlet-class>
+        <servlet-name>CategoryProductControllerServlet</servlet-name>
+        <servlet-class>com.mycompany.easybuy.servlets.CategoryProductControllerServlet</servlet-class>
     </servlet>
+    <!-- URL Mapping of the Serlvet -->
+    <servlet-mapping>
+        <servlet-name>CategoryProductControllerServlet</servlet-name>
+        <url-pattern>/add</url-pattern>
+        <url-pattern>/index</url-pattern>
+        <url-pattern>/myProducts</url-pattern>
+        <url-pattern>/product</url-pattern>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
+    
+    <!-- ***** Servlet for Admin Control -->
     <servlet>
-        <servlet-name>ProductOperationServlet</servlet-name>
-        <servlet-class>com.mycompany.easybuy.servlets.ProductOperationServlet</servlet-class>
+        <servlet-name>AdminControllerServlet</servlet-name>
+        <servlet-class>com.mycompany.easybuy.servlets.AdminControllerServlet</servlet-class>
     </servlet>
+    <!-- URL Mapping of the Serlvet -->
+    <servlet-mapping>
+        <servlet-name>AdminControllerServlet</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    
+    <!-- ***** Servlet for CRUD Operations in Members Sellers and Customers ***** -->
     <servlet>
-        <servlet-name>ModifyServlet</servlet-name>
-        <servlet-class>com.mycompany.easybuy.servlets.ModifyServlet</servlet-class>
+        <servlet-name>MemberSellerCustomerControllerServlet</servlet-name>
+        <servlet-class>com.mycompany.easybuy.servlets.MemberSellerCustomerControllerServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>EditServlet</servlet-name>
-        <servlet-class>com.mycompany.easybuy.servlets.EditServlet</servlet-class>
-    </servlet>
+    <!-- URL Mapping of the Serlvet -->
+    <servlet-mapping>
+        <servlet-name>MemberSellerCustomerControllerServlet</servlet-name>
+        <url-pattern>/sell</url-pattern>
+        <url-pattern>/buy</url-pattern>
+        <url-pattern>/manageAddress</url-pattern>
+        <url-pattern>/edit</url-pattern>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+    
+    <!-- ***** Servlet for Checkout ***** -->
     <servlet>
         <servlet-name>CheckOutServlet</servlet-name>
         <servlet-class>com.mycompany.easybuy.servlets.CheckOutServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>PaymentServlet</servlet-name>
-        <servlet-class>com.mycompany.easybuy.servlets.PaymentServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>RegisterServlet</servlet-name>
-        <url-pattern>/RegisterServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/LoginServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LogoutServlet</servlet-name>
-        <url-pattern>/LogoutServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SellerServlet</servlet-name>
-        <url-pattern>/SellerServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ProductOperationServlet</servlet-name>
-        <url-pattern>/ProductOperationServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>EditServlet</servlet-name>
-        <url-pattern>/EditServlet</url-pattern>
-    </servlet-mapping>
+    <!-- URL Mapping of the Serlvet -->
     <servlet-mapping>
         <servlet-name>CheckOutServlet</servlet-name>
-        <url-pattern>/CheckOutServlet</url-pattern>
+        <url-pattern>/checkout</url-pattern>
     </servlet-mapping>
+    
+    <!-- ***** Servlet for Payments ***** -->
+    <servlet>
+        <servlet-name>PaymentControllerServlet</servlet-name>
+        <servlet-class>com.mycompany.easybuy.servlets.PaymentControllerServlet</servlet-class>
+    </servlet>
+    <!-- URL Mapping of the Serlvet -->
     <servlet-mapping>
-        <servlet-name>PaymentServlet</servlet-name>
-        <url-pattern>/PaymentServlet</url-pattern>
+        <servlet-name>PaymentControllerServlet</servlet-name>
+        <url-pattern>/completePayment</url-pattern>
     </servlet-mapping>
+    
+    <!-- ***** Servlet for Payment Gateway ***** -->
+    <servlet>
+        <servlet-name>RazorpayOrderHandlerServlet</servlet-name>
+        <servlet-class>com.mycompany.easybuy.servlets.RazorpayOrderHandlerServlet</servlet-class>
+    </servlet>
+    <!-- URL Mapping of the Serlvet -->
+    <servlet-mapping>
+        <servlet-name>RazorpayOrderHandlerServlet</servlet-name>
+        <url-pattern>/createOrder</url-pattern>
+    </servlet-mapping>
+    
+    <!-- ***** Servlet for Placing Order ***** -->
+    <servlet>
+        <servlet-name>OrderControllerServlet</servlet-name>
+        <servlet-class>com.mycompany.easybuy.servlets.OrderControllerServlet</servlet-class>
+    </servlet>
+    <!-- URL Mapping of the Serlvet -->
+    <servlet-mapping>
+        <servlet-name>OrderControllerServlet</servlet-name>
+        <url-pattern>/orderPlaced</url-pattern>
+        <url-pattern>/myOrders</url-pattern>
+        <url-pattern>/addRating</url-pattern>
+    </servlet-mapping>
+    
+    <!-- ***** Servlet for User Logout ***** -->
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.mycompany.easybuy.servlets.LogoutServlet</servlet-class>
+    </servlet>
+    <!-- URL Mapping of the Serlvet -->
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/visitAgain</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Session Time of a User -->
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    
+    <welcome-file-list>
+        <welcome-file>index</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

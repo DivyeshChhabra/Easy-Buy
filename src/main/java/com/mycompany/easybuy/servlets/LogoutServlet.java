@@ -1,14 +1,9 @@
-package com.mycompany.easybuy.servlets; /* Package Name */
+package com.mycompany.easybuy.servlets;
 
-/* Importing necessary Packages and Classes */
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
 public class LogoutServlet extends HttpServlet {
     
@@ -17,17 +12,16 @@ public class LogoutServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         try (PrintWriter out = response.getWriter()) {
-            /* Removing the details of loggedd in member from the session */
-            HttpSession httpsession = request.getSession();
-            httpsession.removeAttribute("current-user");
+            
+            HttpSession session = request.getSession();
+            session.removeAttribute("current-member");
+            
             response.sendRedirect("login.jsp");
-        } catch(Exception e){
-            System.out.println(e);
         }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
+    /*
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
@@ -41,7 +35,7 @@ public class LogoutServlet extends HttpServlet {
         processRequest(request, response);
     }
 
-    /**
+    /*
      * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
@@ -55,7 +49,7 @@ public class LogoutServlet extends HttpServlet {
         processRequest(request, response);
     }
 
-    /**
+    /*
      * Returns a short description of the servlet.
      *
      * @return a String containing servlet description

@@ -1,34 +1,40 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="com.mycompany.easybuy.model.Member" %>
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+
+<%
+    Member currentMember = (Member) session.getAttribute("current-member");
+    pageContext.setAttribute("member", currentMember);
+%>
+
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
         <title>About Us</title>
+        
         <style>
             .container-fluid{
-                background: url('Image/Register-Login Background.jpg') no-repeat center center fixed;
-                -webkit-background-size: cover;
-                -moz-background-size: cover;
-                -o-background-size: cover;
-                background-size: cover;
+                background-color: #ADD8E6;
             }
             html{
-                background: url('Image/Register-Login Background.jpg') no-repeat center center fixed;
-                -webkit-background-size: cover;
-                -moz-background-size: cover;
-                -o-background-size: cover;
-                background-size: cover;
+                background-color: #ADD8E6;
             }
         </style>
+        
         <%@include file="Components/common_css_js.jsp"%>
     </head>
+    
     <body>
+        
         <%@include file="Components/navbar.jsp"%>
+        
         <div class="container-fluid px-5 py-5">
             
             <div class="card">
                 <div class="card-header text-center">
-                    <h2 class="my-0">About Us</h2>
+                    <h1 class="my-0"><b>ABOUT US</b></h1>
                 </div>
             </div>
             
@@ -40,8 +46,9 @@
                         <div class="card-body text-center py-0">
                             <h3 class="card-title">Divyesh Chhabra</h3>
                         </div>
+                        
                         <p class="card-text text-center pb-5">
-                            Software Developer Enthusiast | Competitive Programmer
+                            19ucs208 | Computer Science and Engineering
                         </p>
                     </div>
                 </div>
@@ -53,8 +60,9 @@
                         <div class="card-body text-center py-0">
                             <h3 class="card-title">Raghav Sharma</h3>
                         </div>
+                        
                         <p class="card-text text-center pb-5">
-                            Data Science Enthusiast
+                            19ucs204 | Computer Science and Engineering
                         </p>
                     </div>
                   
@@ -67,8 +75,9 @@
                         <div class="card-body text-center py-0">
                             <h3 class="card-title">Shail Kardani</h3>
                         </div>
+                        
                         <p class="card-text text-center pb-5">
-                            Data Science Enthusiast
+                            19ucs217 | Computer Science and Engineering
                         </p>
                     </div>
                 </div>

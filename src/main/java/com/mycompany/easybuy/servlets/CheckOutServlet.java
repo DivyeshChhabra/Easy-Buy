@@ -1,55 +1,73 @@
-package com.mycompany.easybuy.servlets; /* Package Name */
+package com.mycompany.easybuy.servlets;
 
-/* Importing necessary Packages and Classes */
+import com.mycompany.easybuy.model.Category;
+import com.mycompany.easybuy.model.Product;
+import com.mycompany.easybuy.utility.CategoryUtility;
+import com.mycompany.easybuy.utility.ProductUtility;
+
 import java.sql.*;
+import java.io.*;
+import java.util.logging.*;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.sql.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.annotation.Resource;
 
 public class CheckOutServlet extends HttpServlet {
+    
+    ProductUtility productUtility;
+    CategoryUtility categoryUtility;
+    
+    @Resource(name="jdbc/easy_buy")
+    DataSource dataSource;
 
+    @Override
+    public void init(){
+        try{
+            productUtility = new ProductUtility(dataSource);
+            categoryUtility = new CategoryUtility(dataSource);
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
+        
         try (PrintWriter out = response.getWriter()) {
-            /* Connecting MySQL DataBase with JAVA application */
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/easy_buy","root","root");
             
-            /* Creating Session*/
-            HttpSession httpsession = request.getSession();
+            Product product = null;
+            Category category = null;
+            int quantity = 0;
             
-            String billing_address = request.getParameter("billing_address");
-            String delivery_address = request.getParameter("delivery_address");
-            
-            ResultSet rs20 = (ResultSet)httpsession.getAttribute("current-user");
-            
-            try{
-                /* Adding the values in customer table - QUERY 1 */
-                PreparedStatement stmt24 = myCon.prepareStatement("insert into customers(member_id,billing_address,delivery_address) values(?,?,?);");
-                stmt24.setInt(1, rs20.getInt("member_id"));
-                stmt24.setString(2, rs20.getString("billing_address"));
-                stmt24.setString(3, rs20.getString("delivery_address"));
-                int rowEff1 = stmt24.executeUpdate();
-            }catch(Exception e){
-                System.out.println(e);
+            if(request.getParameter("product_id") != null){
+                
+                product = productUtility.getProduct(Integer.parseInt(request.getParameter("product_id")));
+                category = categoryUtility.getSelectedCategory(product.getId());
+                quantity = Integer.parseInt(request.getParameter("quantity"));
+            }else{
+                
+                boolean completeCart = Boolean.parseBoolean(request.getParameter("complete_cart"));
+                if(!completeCart){
+                    product = productUtility.getProduct(Integer.parseInt(request.getParameter("cart_product_id")));
+                    category = categoryUtility.getSelectedCategory(product.getId());
+                    quantity = Integer.parseInt(request.getParameter("cart_quantity"));
+                }
             }
             
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CheckOutServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            request.setAttribute("product", product);
+            request.setAttribute("category", category);
+            request.setAttribute("quantity", quantity);
+            
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/checkout.jsp");
+            dispatcher.forward(request, response);
+        }    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
+    /*
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
@@ -67,7 +85,7 @@ public class CheckOutServlet extends HttpServlet {
         }
     }
 
-    /**
+    /*
      * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
@@ -85,7 +103,7 @@ public class CheckOutServlet extends HttpServlet {
         }
     }
 
-    /**
+    /*
      * Returns a short description of the servlet.
      *
      * @return a String containing servlet description
