@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Context path="/EasyBuy">
-  <Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" maxActive="50" maxIdle="10" maxWait="10000" name="jdbc/easy_buy" password="root" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/easy_buy?allowPublicKeyRetrieval=true&amp;useSSL=false" username="root"/>
-</Context>

@@ -1,1 +1,25 @@
-/target/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+## WEBSITE
+/Website/target/
+
+
+## MOBILE APP
+/Mobile App/*.iml
+/Mobile App/.gradle
+/Mobile App/local.properties
+/Mobile App/.idea/caches
+/Mobile App/.idea/libraries
+/Mobile App/.idea/modules.xml
+/Mobile App/.idea/workspace.xml
+/Mobile App/.idea/navEditor.xml
+/Mobile App/.idea/assetWizardSettings.xml
+/Mobile App/.DS_Store
+/Mobile App/build
+/Mobile App/captures
+/Mobile App/.externalNativeBuild
+/Mobile App/.cxx
+/Mobile App/local.properties
+
+/Mobile App/app/build/
+/Mobile App/app/src/main/res/drawable/
