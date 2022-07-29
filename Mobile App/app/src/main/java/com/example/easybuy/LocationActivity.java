@@ -30,8 +30,6 @@ public class LocationActivity extends FragmentActivity implements OnMapReadyCall
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#24A0ED")));
-
         binding = ActivityLocationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
