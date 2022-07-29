@@ -2,7 +2,7 @@
 
 ## WEBSITE
 /Website/target/
-/Website/src/main/webapp/META-INF/context.xml
+/Website/src/main/webapp/META-INF/*
 
 
 ## MOBILE APP
