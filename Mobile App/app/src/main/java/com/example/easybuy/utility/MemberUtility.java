@@ -1,6 +1,7 @@
 package com.example.easybuy.utility;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.example.easybuy.model.Member;
 
@@ -28,7 +29,7 @@ public class MemberUtility {
             try{
 
                 Class.forName("com.mysql.jdbc.Driver");
-                connection = DriverManager.getConnection("jdbc:mysql://192.168.29.68:3306/easy_buy","root","root");
+                connection = DriverManager.getConnection("jdbc:mysql://192.168.137.35:3306/easy_buy","root","root");
 
                 String sql = "SELECT * FROM members WHERE e_mail = ? AND password = ?";
 
@@ -82,7 +83,7 @@ public class MemberUtility {
             try{
 
                 Class.forName("com.mysql.jdbc.Driver");
-                connection = DriverManager.getConnection("jdbc:mysql://192.168.29.68:3306/easy_buy","root","root");
+                connection = DriverManager.getConnection("jdbc:mysql://192.168.137.35:3306/easy_buy","root","root");
 
                 String sql = "SELECT password FROM members WHERE e_mail = ?";
 

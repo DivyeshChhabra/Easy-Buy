@@ -31,7 +31,7 @@ public class MailUtility {
         Session session = Session.getInstance(properties, new Authenticator(){
             @Override
             protected PasswordAuthentication getPasswordAuthentication(){
-                return new PasswordAuthentication(from,"lqpkhexwfsvshzol");
+                return new PasswordAuthentication(from,"nehlnqphahwnqffe");
             }
         });
 

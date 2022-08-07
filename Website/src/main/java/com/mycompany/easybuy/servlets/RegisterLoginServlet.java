@@ -58,7 +58,7 @@ public class RegisterLoginServlet extends HttpServlet {
                     
                     session.setAttribute("current-member", member);
                     
-                    if(member.getType().equals("Normal")){
+                    if(member.getType().equals("Normal") || member.getType().equals("Carrier")){
                         session.setAttribute("success", "Welcome " + member.getFirstName() + " " + member.getLastName() + "!!");
                         response.sendRedirect("index");
                     }else{

@@ -15,7 +15,7 @@
             </button>
         </form>
         
-        <c:if test="${member == null || member.getType().equals('Normal')}">
+        <c:if test="${member == null || member.getType().equals('Normal') || member.getType().equals('Carrier')}">
             <form class="form-inline">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1" style="width: 400px">
@@ -88,7 +88,7 @@
         
         var form = document.getElementById("main-form");
         
-        if(type.length === 0 || type === "Normal") form.setAttribute("action","index");
+        if(type.length === 0 || type === "Normal" || type === "Carrier") form.setAttribute("action","index");
         else form.setAttribute("action","admin");
         
         form.submit();

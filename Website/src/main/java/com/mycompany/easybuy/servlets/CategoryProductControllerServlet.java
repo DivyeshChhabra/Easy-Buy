@@ -189,10 +189,10 @@ public class CategoryProductControllerServlet extends HttpServlet {
 
             String webPath = request.getRealPath("Image") + File.separator + "Products" + File.separator + productImagePath;
             String appPath = "E:" + File.separator + "Study" + File.separator + "Projects" + File.separator + "AP" + File.separator + "EasyBuy" + File.separator + "Mobile App" + File.separator + "app" + File.separator + "src" + File.separator + "main" + File.separator + "res" + File.separator + "drawable" + File.separator + productImagePath.toLowerCase();
-            System.out.println(appPath);
+            
             webOutputStream = new FileOutputStream(webPath);
             appOutputStream = new FileOutputStream(appPath);
-            System.out.println(appOutputStream);
+            
             byte[] webData = new byte[webInputStream.available()];
             byte[] appData = new byte[webInputStream.available()];
             

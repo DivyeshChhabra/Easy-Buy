@@ -28,7 +28,7 @@ public class OrderUtility {
             try{
 
                 Class.forName("com.mysql.jdbc.Driver");
-                connection = DriverManager.getConnection("jdbc:mysql://192.168.29.68:3306/easy_buy","root","root");
+                connection = DriverManager.getConnection("jdbc:mysql://192.168.137.35:3306/easy_buy","root","root");
 
                 String sql = "SELECT * FROM orders";
 
@@ -115,7 +115,7 @@ public class OrderUtility {
             try{
 
                 Class.forName("com.mysql.jdbc.Driver");
-                connection = DriverManager.getConnection("jdbc:mysql://192.168.29.68:3306/easy_buy","root","root");
+                connection = DriverManager.getConnection("jdbc:mysql://192.168.137.35:3306/easy_buy","root","root");
 
                 String sql = "UPDATE orders SET status = ?, delivery_date = ? WHERE id = ?";
                 preparedStatement = connection.prepareStatement(sql);

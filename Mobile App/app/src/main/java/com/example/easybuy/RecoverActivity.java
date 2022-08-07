@@ -1,5 +1,6 @@
 package com.example.easybuy;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
@@ -51,6 +52,9 @@ public class RecoverActivity extends AppCompatActivity {
 
             MailUtility mailUtility = new MailUtility(emailID,message,subject);
             mailUtility.sendMail();
+
+            Intent intent = new Intent(this,LoginActivity.class);
+            startActivity(intent);
         } catch (Exception exception) {
             exception.printStackTrace();
         }
