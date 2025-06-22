@@ -18,7 +18,7 @@ public class RazorpayOrderHandlerServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             
-            RazorpayClient razorpayClient = new RazorpayClient("rzp_test_OdBrs6pW8uKVAq", "kIEMAjG0lA73EXltoL4NUkTC");
+            RazorpayClient razorpayClient = new RazorpayClient("rzp_test_OdBrs6pW8uKVAq", "***");
             
             JSONObject orderRequest = new JSONObject();
             orderRequest.put("amount", Double.parseDouble(request.getParameter("amount"))*100);
